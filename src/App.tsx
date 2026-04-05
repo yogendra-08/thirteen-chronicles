@@ -111,35 +111,35 @@ function App() {
     }
   ];
 
-  // Global keyboard shortcuts
-  useEffect(() => {
-    const handleGlobalKeyPress = (e: KeyboardEvent) => {
-      // Only handle shortcuts when not typing in input fields
-      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
-        return;
-      }
+  // Global keyboard shortcuts removed - using buttons instead
+  // useEffect(() => {
+  //   const handleGlobalKeyPress = (e: KeyboardEvent) => {
+  //     // Only handle shortcuts when not typing in input fields
+  //     if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+  //       return;
+  //     }
 
-      if (e.ctrlKey || e.metaKey) {
-        switch (e.key) {
-          case 'q':
-            e.preventDefault();
-            setShowQuiz(!showQuiz);
-            break;
-          case 'g':
-            e.preventDefault();
-            setShowGuestBook(!showGuestBook);
-            break;
-          case 'l':
-            e.preventDefault();
-            setLightboxOpen(!lightboxOpen);
-            break;
-        }
-      }
-    };
+  //     if (e.ctrlKey || e.metaKey) {
+  //       switch (e.key) {
+  //         case 'q':
+  //           e.preventDefault();
+  //           setShowQuiz(!showQuiz);
+  //           break;
+  //         case 'g':
+  //           e.preventDefault();
+  //           setShowGuestBook(!showGuestBook);
+  //           break;
+  //         case 'l':
+  //           e.preventDefault();
+  //           setLightboxOpen(!lightboxOpen);
+  //           break;
+  //       }
+  //     }
+  //   };
 
-    window.addEventListener('keydown', handleGlobalKeyPress);
-    return () => window.removeEventListener('keydown', handleGlobalKeyPress);
-  }, [showQuiz, showGuestBook, lightboxOpen]);
+  //   window.addEventListener('keydown', handleGlobalKeyPress);
+  //   return () => window.removeEventListener('keydown', handleGlobalKeyPress);
+  // }, [showQuiz, showGuestBook, lightboxOpen]);
 
   if (showQuiz) {
     return <MemoryQuiz />;
@@ -172,40 +172,28 @@ function App() {
         />
 
         {/* Quick Access Buttons */}
-        <div className="fixed bottom-4 left-4 flex flex-col gap-2 z-30">
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
           <button
             onClick={() => setShowQuiz(true)}
             className="p-3 bg-purple-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
-            title="Memory Quiz (Ctrl+Q)"
+            title="Memory Quiz"
           >
             <span className="text-xs font-bold group-hover:scale-110 transition-transform">🧠</span>
           </button>
           <button
             onClick={() => setShowGuestBook(true)}
             className="p-3 bg-pink-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
-            title="Guest Book (Ctrl+G)"
+            title="Guest Book"
           >
             <span className="text-xs font-bold group-hover:scale-110 transition-transform">📖</span>
           </button>
           <button
             onClick={() => setLightboxOpen(true)}
             className="p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
-            title="Image Gallery (Ctrl+L)"
+            title="Image Gallery"
           >
             <span className="text-xs font-bold group-hover:scale-110 transition-transform">🖼️</span>
           </button>
-        </div>
-
-        {/* Help Tooltip */}
-        <div className="fixed top-20 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-3 rounded-lg shadow-lg z-30 max-w-xs">
-          <p className="text-xs text-gray-600 dark:text-gray-400">
-            <strong>Keyboard Shortcuts:</strong><br/>
-            ↑↓ - Navigate sections<br/>
-            Ctrl+Q - Quiz<br/>
-            Ctrl+G - Guest Book<br/>
-            Ctrl+L - Lightbox<br/>
-            ? - Help
-          </p>
         </div>
       </div>
     </ThemeProvider>

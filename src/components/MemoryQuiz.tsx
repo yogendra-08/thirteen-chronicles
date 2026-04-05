@@ -167,7 +167,7 @@ const MemoryQuiz: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           {question.options.map((option, index) => (
             <button
-              key={index}
+              key={`${currentQuestion}-${index}`}
               onClick={() => !showResult && handleAnswerSelect(index)}
               disabled={showResult}
               className={`p-4 rounded-xl font-medium transition-all duration-300 ${
