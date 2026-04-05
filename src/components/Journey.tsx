@@ -4,12 +4,12 @@ const Journey = () => {
   const timelineData = [
     {
       id: 1,
-      title: 'Encryptia Event',
+      title: 'Encryptia',
       subtitle: 'IT Department',
       description: 'Our journey started with one of the most exciting department events — Encryptia. We were part of the Design Committee and also participated in Filmy Hungama. The entire event had a magical vibe as we created designs inspired by a Harry Potter theme, which we proudly called "Prince Magic Show". It was full of creativity, teamwork, and fun.',
       icon: <Calendar className="text-white" size={24} />,
       type: 'image',
-      mediaPlaceholder: 'Image Placeholder'
+      imageUrl: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/home1.jpeg'
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const Journey = () => {
       description: 'Avishkar gave us some of the most fun and energetic memories. From dancing together to clicking lots of photos, every moment was filled with joy. And of course, the highlight — enjoying delicious mutton together! It was a perfect mix of fun, food, and friendship.',
       icon: <Users className="text-white" size={24} />,
       type: 'image',
-      mediaPlaceholder: 'Image Placeholder'
+      imageUrl: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/new/us.jpg'
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ const Journey = () => {
       description: 'Our turf day was full of energy, fun, and crazy moments. We played, laughed, and created some of the funniest memories together. It was one of those days where everyone just lived in the moment.',
       icon: <MapPin className="text-white" size={24} />,
       type: 'image',
-      mediaPlaceholder: 'Image Placeholder'
+      imageUrl: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/journey/turf.jpeg'
     },
     {
       id: 6,
@@ -53,8 +53,8 @@ const Journey = () => {
       subtitle: 'Cinema Adventure',
       description: 'We all went to watch Durandar 2 together, but the real fun was outside the screen! Since snacks weren\'t allowed inside, we came up with funny jugaad ideas to sneak them in. That moment was as entertaining as the movie itself.',
       icon: <Film className="text-white" size={24} />,
-      type: 'image',
-      mediaPlaceholder: 'Image Placeholder'
+      type: 'video',
+      videoUrl: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/journey/movie.mp4'
     },
     {
       id: 7,
@@ -63,7 +63,7 @@ const Journey = () => {
       description: 'Our visit to Japanese Tekdi was peaceful yet full of bonding moments. Walking together, enjoying the view, and spending quality time made it a perfect ending to many of our shared experiences.',
       icon: <Mountain className="text-white" size={24} />,
       type: 'image',
-      mediaPlaceholder: 'Image Placeholder'
+      imageUrl: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/home1.jpeg'
     }
   ];
 
@@ -109,21 +109,41 @@ const Journey = () => {
                     {/* Media section */}
                     {item.type === 'image' ? (
                       <div className="relative overflow-hidden">
-                        <div className="w-full h-64 bg-gradient-to-br from-purple-200 to-pink-200 dark:from-purple-800 dark:to-pink-800 flex items-center justify-center">
-                          <div className="text-center text-gray-600 dark:text-gray-300">
-                            <Camera size={48} className="mx-auto mb-2" />
-                            <p className="text-lg font-semibold">{item.mediaPlaceholder}</p>
-                            <p className="text-sm opacity-80 mt-1">Replace with your image</p>
+                        {item.imageUrl ? (
+                          <img
+                            src={item.imageUrl}
+                            alt={item.title}
+                            className="w-full h-auto max-h-80 object-contain group-hover:scale-105 transition-transform duration-500"
+                          />
+                        ) : (
+                          <div className="w-full h-64 bg-gradient-to-br from-purple-200 to-pink-200 dark:from-purple-800 dark:to-pink-800 flex items-center justify-center">
+                            <div className="text-center text-gray-600 dark:text-gray-300">
+                              <Camera size={48} className="mx-auto mb-2" />
+                              <p className="text-lg font-semibold">{item.mediaPlaceholder || 'Image Placeholder'}</p>
+                              <p className="text-sm opacity-80 mt-1">Replace with your image</p>
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </div>
                     ) : (
-                      <div className="relative h-64 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
-                        <div className="text-center text-white">
-                          <div className="text-6xl mb-2">🎥</div>
-                          <p className="text-lg font-semibold">{item.mediaPlaceholder}</p>
-                          <p className="text-sm opacity-80 mt-1">Replace with your video</p>
-                        </div>
+                      <div className="relative w-full">
+                        {item.videoUrl ? (
+                          <video
+                            src={item.videoUrl}
+                            className="w-full h-auto max-h-80 object-contain"
+                            controls
+                            muted
+                            loop
+                          />
+                        ) : (
+                          <div className="w-full h-64 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
+                            <div className="text-center text-white">
+                              <div className="text-6xl mb-2">🎥</div>
+                              <p className="text-lg font-semibold">{item.mediaPlaceholder || 'Video Placeholder'}</p>
+                              <p className="text-sm opacity-80 mt-1">Replace with your video</p>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     )}
 
