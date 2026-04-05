@@ -5,6 +5,7 @@ import Journey from './components/Journey';
 import MediaVault from './components/MediaVault';
 import OurGroup from './components/OurGroup';
 import MemoryWall from './components/MemoryWall';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <MediaVault />
         <OurGroup />
         <MemoryWall />
+        <Footer />
       </div>
     </ThemeProvider>
   );
