@@ -12,7 +12,6 @@ import ScrollProgress from './components/ScrollProgress';
 import ImageLightbox from './components/ImageLightbox';
 import MemoryQuiz from './components/MemoryQuiz';
 import GuestBook from './components/GuestBook';
-import useKeyboardNavigation from './hooks/useKeyboardNavigation';
 import useTouchGestures from './hooks/useTouchGestures';
 
 function App() {
@@ -20,9 +19,8 @@ function App() {
   const [showQuiz, setShowQuiz] = useState(false);
   const [showGuestBook, setShowGuestBook] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Navigation sections for keyboard navigation
+  // Navigation sections for reference (keyboard navigation removed)
   const navigationSections = [
     { id: 'home', name: 'Home' },
     { id: 'journey', name: 'Journey' },
@@ -31,10 +29,7 @@ function App() {
     { id: 'memory-wall', name: 'Memory Wall' }
   ];
 
-  // Initialize keyboard navigation
-  useKeyboardNavigation(navigationSections);
-
-  // Initialize touch gestures for mobile
+  // Initialize touch gestures for mobile (keyboard navigation removed)
   useTouchGestures({
     onSwipeLeft: () => {
       // Navigate to next section
@@ -167,7 +162,7 @@ function App() {
         <ImageLightbox
           images={lightboxImages}
           isOpen={lightboxOpen}
-          currentImageIndex={currentImageIndex}
+          currentImageIndex={0}
           onClose={() => setLightboxOpen(false)}
         />
 
