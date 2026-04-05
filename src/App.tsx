@@ -12,7 +12,16 @@ import ScrollProgress from './components/ScrollProgress';
 import ImageLightbox from './components/ImageLightbox';
 import MemoryQuiz from './components/MemoryQuiz';
 import GuestBook from './components/GuestBook';
+import ErrorBoundary from './components/ErrorBoundary';
 import useTouchGestures from './hooks/useTouchGestures';
+
+function AppWrapper() {
+  return (
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  );
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -166,33 +175,50 @@ function App() {
           onClose={() => setLightboxOpen(false)}
         />
 
-        {/* Quick Access Buttons */}
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-30">
+        {/* Quick Access Buttons - Fixed positioning */}
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-30 opacity-0 transition-opacity duration-300" id="quick-access-buttons">
           <button
             onClick={() => setShowQuiz(true)}
             className="p-3 bg-purple-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
             title="Memory Quiz"
           >
-            <span className="text-xs font-bold group-hover:scale-110 transition-transform">🧠</span>
+            <span className="text-xs font-bold group-hover:scale-110 transition-transform">🧠 Quiz</span>
           </button>
           <button
             onClick={() => setShowGuestBook(true)}
             className="p-3 bg-pink-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
             title="Guest Book"
           >
-            <span className="text-xs font-bold group-hover:scale-110 transition-transform">📖</span>
+            <span className="text-xs font-bold group-hover:scale-110 transition-transform">📖 Guest Book</span>
           </button>
           <button
             onClick={() => setLightboxOpen(true)}
             className="p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
             title="Image Gallery"
           >
-            <span className="text-xs font-bold group-hover:scale-110 transition-transform">🖼️</span>
+            <span className="text-xs font-bold group-hover:scale-110 transition-transform">🖼️ Image Gallery</span>
           </button>
         </div>
+
+        {/* CSS for showing buttons only when scrolled to bottom */}
+        <style>{`
+          #quick-access-buttons {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+          }
+          
+          #quick-access-buttons.show {
+            opacity: 1;
+          }
+          
+          /* Show buttons when user scrolls near bottom of page */
+          body:has(#memory-wall:in-viewport) #quick-access-buttons {
+            opacity: 1;
+          }
+        `}</style>
       </div>
     </ThemeProvider>
   );
 }
 
-export default App;
+export default AppWrapper;

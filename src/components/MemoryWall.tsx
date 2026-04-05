@@ -7,7 +7,7 @@ interface Memory {
   author: string;
   color: string;
   rotation: string;
-  icon: React.ReactNode;
+  icon: React.ComponentType<any>;
   timestamp: Date;
   likes: number;
   isLiked: boolean;
@@ -19,7 +19,7 @@ const MemoryWall = () => {
   const [newMemory, setNewMemory] = useState({ text: '', author: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const icons = [<Coffee size={20} />, <Music size={20} />, <Heart size={20} />, <Book size={20} />, <Gamepad2 size={20} />, <Smile size={20} />];
+  const icons = [Coffee, Music, Heart, Book, Gamepad2, Smile];
   const colors = [
     'bg-yellow-200 dark:bg-yellow-300',
     'bg-pink-200 dark:bg-pink-300',
@@ -34,12 +34,17 @@ const MemoryWall = () => {
   useEffect(() => {
     const savedMemories = localStorage.getItem('memoryWallMemories');
     if (savedMemories) {
-      const parsed = JSON.parse(savedMemories);
-      setMemories(parsed.map((mem: any) => ({
-        ...mem,
-        timestamp: new Date(mem.timestamp),
-        isLiked: false
-      })));
+      try {
+        const parsed = JSON.parse(savedMemories);
+        setMemories(parsed.map((mem: any) => ({
+          ...mem,
+          timestamp: new Date(mem.timestamp),
+          isLiked: false
+        })));
+      } catch (error) {
+        console.error('Error parsing saved memories:', error);
+        // Use default memories if parsing fails
+      }
     } else {
       // Default memories
       setMemories([
@@ -49,7 +54,7 @@ const MemoryWall = () => {
           author: "Anonymous",
           color: 'bg-yellow-200 dark:bg-yellow-300',
           rotation: 'rotate-2',
-          icon: <Coffee size={20} />,
+          icon: Coffee,
           timestamp: new Date(Date.now() - 86400000),
           likes: 5,
           isLiked: false
@@ -60,7 +65,7 @@ const MemoryWall = () => {
           author: "Anonymous",
           color: 'bg-pink-200 dark:bg-pink-300',
           rotation: '-rotate-2',
-          icon: <Music size={20} />,
+          icon: Music,
           timestamp: new Date(Date.now() - 172800000),
           likes: 8,
           isLiked: false
@@ -71,7 +76,7 @@ const MemoryWall = () => {
           author: "Anonymous",
           color: 'bg-blue-200 dark:bg-blue-300',
           rotation: 'rotate-1',
-          icon: <Heart size={20} />,
+          icon: Heart,
           timestamp: new Date(Date.now() - 259200000),
           likes: 12,
           isLiked: false
@@ -83,7 +88,11 @@ const MemoryWall = () => {
   // Save memories to localStorage whenever they change
   useEffect(() => {
     if (memories.length > 0) {
-      localStorage.setItem('memoryWallMemories', JSON.stringify(memories));
+      try {
+        localStorage.setItem('memoryWallMemories', JSON.stringify(memories));
+      } catch (error) {
+        console.error('Error saving memories:', error);
+      }
     }
   }, [memories]);
 
@@ -244,7 +253,7 @@ const MemoryWall = () => {
               <div className={`${memory.color} p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 h-48 flex flex-col justify-between`}>
                 <div className="flex items-start justify-between mb-3">
                   <div className="text-gray-800 dark:text-gray-900">
-                    {memory.icon}
+                    <memory.icon size={20} />
                   </div>
                   <span className="text-xs text-gray-600 dark:text-gray-700 bg-white/50 px-2 py-1 rounded-full">
                     {formatDate(memory.timestamp)}

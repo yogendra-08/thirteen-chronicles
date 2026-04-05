@@ -105,11 +105,11 @@ const GuestBook: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <MessageCircle className="text-purple-600" size={40} />
+            <span className="text-purple-600 text-4xl">💌</span>
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               Guest Book
             </h2>
-            <MessageCircle className="text-pink-600" size={40} />
+            <span className="text-pink-600 text-4xl">💌</span>
           </div>
           <p className="text-xl text-gray-600 dark:text-gray-400">
             Leave a message and share your memories with us

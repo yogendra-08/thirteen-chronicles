@@ -119,7 +119,7 @@ const Journey = () => {
                           <div className="w-full h-64 bg-gradient-to-br from-purple-200 to-pink-200 dark:from-purple-800 dark:to-pink-800 flex items-center justify-center">
                             <div className="text-center text-gray-600 dark:text-gray-300">
                               <Camera size={48} className="mx-auto mb-2" />
-                              <p className="text-lg font-semibold">{item.mediaPlaceholder || 'Image Placeholder'}</p>
+                              <p className="text-lg font-semibold">Image Placeholder</p>
                               <p className="text-sm opacity-80 mt-1">Replace with your image</p>
                             </div>
                           </div>
@@ -139,7 +139,7 @@ const Journey = () => {
                           <div className="w-full h-64 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
                             <div className="text-center text-white">
                               <div className="text-6xl mb-2">🎥</div>
-                              <p className="text-lg font-semibold">{item.mediaPlaceholder || 'Video Placeholder'}</p>
+                              <p className="text-lg font-semibold">Video Placeholder</p>
                               <p className="text-sm opacity-80 mt-1">Replace with your video</p>
                             </div>
                           </div>
@@ -172,7 +172,7 @@ const Journey = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in-up {
           from {
             opacity: 0;
