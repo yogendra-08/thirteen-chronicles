@@ -6,9 +6,8 @@ const Home = () => {
 
   const carouselImages = [
     'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/home1.jpeg',
-    'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/home2.jpeg',
-    'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/home3.jpeg',
-    'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/home3.jpeg'
+    'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/home1.jpeg',
+    'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/home1.jpeg'
   ];
 
   useEffect(() => {
