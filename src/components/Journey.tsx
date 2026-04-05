@@ -9,7 +9,7 @@ const Journey = () => {
       description: 'Our journey started with one of the most exciting department events — Encryptia. We were part of the Design Committee and also participated in Filmy Hungama. The entire event had a magical vibe as we created designs inspired by a Harry Potter theme, which we proudly called "Prince Magic Show". It was full of creativity, teamwork, and fun.',
       icon: <Calendar className="text-white" size={24} />,
       type: 'image',
-      imageUrl: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/home1.jpeg'
+      imageUrl: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/event.jpeg'
     },
     {
       id: 2,

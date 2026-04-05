@@ -66,6 +66,12 @@ const MediaVault = () => {
       type: 'photo',
       url: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/new/us.jpg',
       title: 'Celebration Time',
+    },
+    {
+      id: 10,
+      type: 'photo',
+      url: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/event.jpeg',
+      title: 'Encryptia Event',
     }
   ];
 
