@@ -132,6 +132,15 @@ const OurGroup = () => {
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-pink-400 to-purple-400',
     },
+    {
+      id: 14,
+      name: 'Adhira',
+      role: 'The Sunshine',
+      description: 'Brought warmth and brightness to every gathering',
+      extraInfo: 'Your radiant smile and positive energy lit up every room and made everyone feel at home',
+      image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
+      color: 'from-amber-400 to-yellow-400',
+    },
   ];
 
   return (
