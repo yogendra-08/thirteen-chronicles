@@ -27,7 +27,7 @@ const Journey = () => {
       description: 'One day, Gaurav brought homemade chicken sabji for all of us. We sat together and shared the meal like a family. It was one of those simple yet unforgettable moments… although Bhagwati missed out on it! 😄',
       icon: <Utensils className="text-white" size={24} />,
       type: 'video',
-      mediaPlaceholder: 'Video Placeholder'
+      videoUrl: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/journey/gaurav.mp4'
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ const Journey = () => {
       description: 'Soundarya surprised us by bringing delicious biryani, and it turned into another memorable food moment for the group. The taste, the laughter, and the togetherness made it truly special.',
       icon: <Utensils className="text-white" size={24} />,
       type: 'video',
-      mediaPlaceholder: 'Video Placeholder'
+      videoUrl: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/journey/soundarya.mp4'
     },
     {
       id: 5,
