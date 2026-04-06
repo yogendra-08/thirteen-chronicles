@@ -25,7 +25,7 @@ const useTouchGestures = (options: TouchGestureOptions) => {
     onSwipeDown,
     onPinch,
     threshold = 50,
-    preventDefault = true
+    preventDefault = false // Default to false to allow scrolling
   } = options;
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const useTouchGestures = (options: TouchGestureOptions) => {
         const dy = e.touches[0].clientY - e.touches[1].clientY;
         initialDistance.current = Math.sqrt(dx * dx + dy * dy);
       }
-
+      // Only prevent default if explicitly requested
       if (preventDefault) {
         e.preventDefault();
       }
@@ -51,20 +51,20 @@ const useTouchGestures = (options: TouchGestureOptions) => {
         const dx = e.touches[0].clientX - e.touches[1].clientX;
         const dy = e.touches[0].clientY - e.touches[1].clientY;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
         if (initialDistance.current > 0) {
           const newScale = distance / initialDistance.current;
           setScale(newScale);
           onPinch(newScale);
         }
-      }
-
-      if (preventDefault) {
-        e.preventDefault();
+        // Only prevent default for pinch gesture
+        if (preventDefault) {
+          e.preventDefault();
+        }
       }
     };
 
     const handleTouchEnd = (e: TouchEvent) => {
+      let gestureHandled = false;
       if (e.changedTouches.length === 1) {
         touchEndX.current = e.changedTouches[0].clientX;
         touchEndY.current = e.changedTouches[0].clientY;
@@ -81,15 +81,19 @@ const useTouchGestures = (options: TouchGestureOptions) => {
             // Horizontal swipe
             if (deltaX > 0 && onSwipeRight) {
               onSwipeRight();
+              gestureHandled = true;
             } else if (deltaX < 0 && onSwipeLeft) {
               onSwipeLeft();
+              gestureHandled = true;
             }
           } else {
             // Vertical swipe
             if (deltaY > 0 && onSwipeDown) {
               onSwipeDown();
+              gestureHandled = true;
             } else if (deltaY < 0 && onSwipeUp) {
               onSwipeUp();
+              gestureHandled = true;
             }
           }
         }
@@ -98,8 +102,8 @@ const useTouchGestures = (options: TouchGestureOptions) => {
         initialDistance.current = 0;
         setScale(1);
       }
-
-      if (preventDefault) {
+      // Only prevent default if a gesture was handled
+      if (preventDefault && gestureHandled) {
         e.preventDefault();
       }
     };
@@ -123,12 +127,12 @@ const useTouchGestures = (options: TouchGestureOptions) => {
     };
 
     // Add event listeners
-    document.addEventListener('touchstart', handleTouchStart, { passive: !preventDefault });
-    document.addEventListener('touchmove', handleTouchMove, { passive: !preventDefault });
-    document.addEventListener('touchend', handleTouchEnd, { passive: !preventDefault });
-    document.addEventListener('gesturestart', handleGestureStart, { passive: !preventDefault });
-    document.addEventListener('gesturechange', handleGestureChange, { passive: !preventDefault });
-    document.addEventListener('gestureend', handleGestureEnd, { passive: !preventDefault });
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+    document.addEventListener('touchmove', handleTouchMove, { passive: true });
+    document.addEventListener('touchend', handleTouchEnd, { passive: true });
+    document.addEventListener('gesturestart', handleGestureStart, { passive: true });
+    document.addEventListener('gesturechange', handleGestureChange, { passive: true });
+    document.addEventListener('gestureend', handleGestureEnd, { passive: true });
 
     return () => {
       document.removeEventListener('touchstart', handleTouchStart);
