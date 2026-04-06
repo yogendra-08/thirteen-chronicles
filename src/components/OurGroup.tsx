@@ -21,7 +21,7 @@ const OurGroup = () => {
       role: 'The Creative Soul',
       description: 'Always had the wildest ideas and biggest dreams',
       extraInfo: 'From late-night brainstorming to making everyone laugh, you brought color to our journey',
-      image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/members/trushna.png?raw=true',
       color: 'from-purple-400 to-pink-400',
     },
     {
