@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { X, Image as ImageIcon, Video, Grid3x3 } from 'lucide-react';
+import { ImageIcon, Video, Grid3X3 } from 'lucide-react';
+import ImageLightbox from './ImageLightbox';
 
 interface MediaItem {
   id: number;
@@ -10,7 +11,8 @@ interface MediaItem {
 
 const MediaVault = () => {
   const [filter, setFilter] = useState<'all' | 'photo' | 'video'>('all');
-  const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const mediaItems: MediaItem[] = [
     {
@@ -72,7 +74,97 @@ const MediaVault = () => {
       type: 'photo',
       url: 'https://raw.githubusercontent.com/yogendra-08/thirteen-chronicles/main/photo/journey/event.jpeg',
       title: 'Encryptia Event',
-    }
+    },
+    {
+      id: 11,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p1.jpeg?raw=true',
+      title: 'Memory Photo 1',
+    },
+    {
+      id: 12,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p2.jpeg?raw=true',
+      title: 'Memory Photo 2',
+    },
+    {
+      id: 13,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p3.jpeg?raw=true',
+      title: 'Memory Photo 3',
+    },
+    {
+      id: 14,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p4.jpeg?raw=true',
+      title: 'Memory Photo 4',
+    },
+    {
+      id: 15,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p5.jpeg?raw=true',
+      title: 'Memory Photo 5',
+    },
+    {
+      id: 16,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p6.jpeg?raw=true',
+      title: 'Memory Photo 6',
+    },
+    {
+      id: 17,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p7.jpeg?raw=true',
+      title: 'Memory Photo 7',
+    },
+    {
+      id: 18,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p8.jpeg?raw=true',
+      title: 'Memory Photo 8',
+    },
+    {
+      id: 19,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p9.jpeg?raw=true',
+      title: 'Memory Photo 9',
+    },
+    {
+      id: 20,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p10.jpeg?raw=true',
+      title: 'Memory Photo 10',
+    },
+    {
+      id: 21,
+      type: 'photo',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/p11.jpeg?raw=true',
+      title: 'Memory Photo 11',
+    },
+    {
+      id: 22,
+      type: 'video',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/v1.mp4',
+      title: 'Memory Video 1',
+    },
+    {
+      id: 23,
+      type: 'video',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/v2.mp4',
+      title: 'Memory Video 2',
+    },
+    {
+      id: 24,
+      type: 'video',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/v3.mp4',
+      title: 'Memory Video 3',
+    },
+    {
+      id: 25,
+      type: 'video',
+      url: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/memory/v4.mp4',
+      title: 'Memory Video 4',
+    },
   ];
 
   const filteredMedia =
@@ -102,7 +194,7 @@ const MediaVault = () => {
                 : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:shadow-md'
             }`}
           >
-            <Grid3x3 size={20} />
+            <Grid3X3 size={20} />
             All
           </button>
           <button
@@ -133,20 +225,27 @@ const MediaVault = () => {
           {filteredMedia.map((item) => (
             <div
               key={item.id}
-              onClick={() => setSelectedMedia(item)}
+              onClick={() => {
+                const index = filteredMedia.findIndex(m => m.id === item.id);
+                setCurrentImageIndex(index);
+                setLightboxOpen(true);
+              }}
               className="group relative overflow-hidden rounded-2xl cursor-pointer bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
               {item.type === 'photo' ? (
-                <img
-                  src={item.url}
-                  alt={item.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+                <div className="aspect-auto">
+                  <img
+                    src={item.url}
+                    alt={item.title}
+                    className="w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
               ) : (
-                <div className="w-full h-64 bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
+                <div className="aspect-auto bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
                   <video
                     src={item.url}
-                    className="w-full h-full object-cover"
+                    className="w-full object-cover"
                     controls
                     muted
                     loop
@@ -164,43 +263,16 @@ const MediaVault = () => {
         </div>
       </div>
 
-      {selectedMedia && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setSelectedMedia(null)}
-        >
-          <button
-            onClick={() => setSelectedMedia(null)}
-            className="absolute top-4 right-4 p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
-          >
-            <X size={32} className="text-white" />
-          </button>
-          <div className="max-w-5xl w-full">
-            {selectedMedia.type === 'photo' ? (
-              <img
-                src={selectedMedia.url}
-                alt={selectedMedia.title}
-                className="w-full h-auto rounded-lg shadow-2xl"
-                onClick={(e) => e.stopPropagation()}
-              />
-            ) : (
-              <div
-                className="w-full aspect-video bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="text-center text-white">
-                  <Video size={64} className="mx-auto mb-4" />
-                  <p className="text-xl font-semibold">{selectedMedia.title}</p>
-                  <p className="text-sm opacity-80 mt-2">Video placeholder - Replace with your video</p>
-                </div>
-              </div>
-            )}
-            <p className="text-white text-center text-xl mt-4 font-semibold">
-              {selectedMedia.title}
-            </p>
-          </div>
-        </div>
-      )}
+      <ImageLightbox
+        images={filteredMedia.map(item => ({
+          url: item.url,
+          title: item.title,
+          type: item.type
+        }))}
+        isOpen={lightboxOpen}
+        currentImageIndex={currentImageIndex}
+        onClose={() => setLightboxOpen(false)}
+      />
     </section>
   );
 };

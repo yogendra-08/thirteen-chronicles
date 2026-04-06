@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -7,7 +7,6 @@ import MediaVault from './components/MediaVault';
 import OurGroup from './components/OurGroup';
 import MemoryWall from './components/MemoryWall';
 import Footer from './components/Footer';
-import LoadingScreen from './components/LoadingScreen';
 import ScrollProgress from './components/ScrollProgress';
 import ImageLightbox from './components/ImageLightbox';
 import MemoryQuiz from './components/MemoryQuiz';
@@ -23,7 +22,6 @@ function AppWrapper() {
 }
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   // Navigation sections for reference (keyboard navigation removed)
@@ -84,15 +82,6 @@ function App() {
     threshold: 50
   });
 
-  // Simulate loading
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   // Sample images for lightbox
   const lightboxImages = [
     {
@@ -144,8 +133,6 @@ function App() {
 
   return (
     <ThemeProvider>
-      <LoadingScreen isLoading={isLoading} />
-      
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
         <ScrollProgress />
         <Navbar />

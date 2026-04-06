@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react';
 
+interface MediaItem {
+  url: string;
+  title: string;
+  description?: string;
+  type?: 'photo' | 'video';
+}
+
 interface ImageLightboxProps {
-  images: Array<{
-    url: string;
-    title: string;
-    description?: string;
-  }>;
+  images: Array<MediaItem>;
   isOpen: boolean;
   currentImageIndex: number;
   onClose: () => void;
@@ -115,18 +118,28 @@ const ImageLightbox: React.FC<ImageLightboxProps> = ({
         </button>
       </div>
 
-      {/* Image Display */}
+      {/* Media Display */}
       <div className="max-w-7xl w-full h-full flex items-center justify-center">
         <div className="relative overflow-hidden rounded-lg">
-          <img
-            src={currentImage.url}
-            alt={currentImage.title}
-            className="max-w-full max-h-full object-contain transition-transform duration-300"
-            style={{ transform: `scale(${zoomLevel})` }}
-          />
+          {currentImage.type === 'video' ? (
+            <video
+              src={currentImage.url}
+              controls
+              autoPlay
+              className="max-w-full max-h-full object-contain transition-transform duration-300"
+              style={{ transform: `scale(${zoomLevel})` }}
+            />
+          ) : (
+            <img
+              src={currentImage.url}
+              alt={currentImage.title}
+              className="max-w-full max-h-full object-contain transition-transform duration-300"
+              style={{ transform: `scale(${zoomLevel})` }}
+            />
+          )}
         </div>
         
-        {/* Image Info */}
+        {/* Media Info */}
         <div className="absolute bottom-4 left-4 right-4 text-center">
           <h3 className="text-white text-2xl font-bold mb-2">{currentImage.title}</h3>
           {currentImage.description && (
