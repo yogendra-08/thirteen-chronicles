@@ -11,7 +11,6 @@ import LoadingScreen from './components/LoadingScreen';
 import ScrollProgress from './components/ScrollProgress';
 import ImageLightbox from './components/ImageLightbox';
 import MemoryQuiz from './components/MemoryQuiz';
-import GuestBook from './components/GuestBook';
 import ErrorBoundary from './components/ErrorBoundary';
 import useTouchGestures from './hooks/useTouchGestures';
 
@@ -25,8 +24,6 @@ function AppWrapper() {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [showQuiz, setShowQuiz] = useState(false);
-  const [showGuestBook, setShowGuestBook] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   // Navigation sections for reference (keyboard navigation removed)
@@ -145,14 +142,6 @@ function App() {
   //   return () => window.removeEventListener('keydown', handleGlobalKeyPress);
   // }, [showQuiz, showGuestBook, lightboxOpen]);
 
-  if (showQuiz) {
-    return <MemoryQuiz />;
-  }
-
-  if (showGuestBook) {
-    return <GuestBook />;
-  }
-
   return (
     <ThemeProvider>
       <LoadingScreen isLoading={isLoading} />
@@ -165,6 +154,7 @@ function App() {
         <MediaVault />
         <OurGroup />
         <MemoryWall />
+        <MemoryQuiz />
         <Footer />
         
         {/* Lightbox */}
@@ -174,31 +164,6 @@ function App() {
           currentImageIndex={0}
           onClose={() => setLightboxOpen(false)}
         />
-
-        {/* Quick Access Buttons - Fixed positioning */}
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-30 opacity-0 transition-opacity duration-300" id="quick-access-buttons">
-          <button
-            onClick={() => setShowQuiz(true)}
-            className="p-3 bg-purple-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
-            title="Memory Quiz"
-          >
-            <span className="text-xs font-bold group-hover:scale-110 transition-transform">🧠 Quiz</span>
-          </button>
-          <button
-            onClick={() => setShowGuestBook(true)}
-            className="p-3 bg-pink-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
-            title="Guest Book"
-          >
-            <span className="text-xs font-bold group-hover:scale-110 transition-transform">📖 Guest Book</span>
-          </button>
-          <button
-            onClick={() => setLightboxOpen(true)}
-            className="p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 group"
-            title="Image Gallery"
-          >
-            <span className="text-xs font-bold group-hover:scale-110 transition-transform">🖼️ Image Gallery</span>
-          </button>
-        </div>
 
         {/* CSS for showing buttons only when scrolled to bottom */}
         <style>{`

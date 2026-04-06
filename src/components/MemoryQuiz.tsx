@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Trophy, Brain, CheckCircle, XCircle } from 'lucide-react';
+import { Trophy, Brain, CheckCircle, XCircle, ArrowLeft } from 'lucide-react';
 
 interface Question {
   id: number;
@@ -106,6 +106,17 @@ const MemoryQuiz: React.FC = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-8">
         <div className="max-w-2xl w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 text-center">
+          {/* Exit Button */}
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={() => window.scrollTo({ top: document.querySelector('#memory-wall')?.getBoundingClientRect().top! + window.scrollY - 100, behavior: 'smooth' })}
+              className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center gap-2"
+            >
+              <ArrowLeft size={16} />
+              Back to Memory Wall
+            </button>
+          </div>
+          
           <Trophy className="mx-auto mb-6 text-yellow-500" size={64} fill="currentColor" />
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Quiz Completed!
@@ -135,25 +146,55 @@ const MemoryQuiz: React.FC = () => {
   const question = questions[currentQuestion];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-8">
-      <div className="max-w-4xl w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8">
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
-              Question {currentQuestion + 1} of {questions.length}
-            </span>
-            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
-              Score: {score}
-            </span>
+    <section id="memory-quiz" className="py-20 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-900 dark:to-gray-800">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Brain className="text-purple-600" size={48} />
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Memory Quiz
+            </h2>
+            <Brain className="text-pink-600" size={48} />
           </div>
-          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-            <div 
-              className="bg-gradient-to-r from-purple-600 to-pink-600 h-2 rounded-full transition-all duration-500"
-              style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-            />
-          </div>
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
+            Test your knowledge of our amazing group memories!
+          </p>
+          <p className="text-lg text-gray-500 dark:text-gray-500">
+            How well do you remember our journey together? Let's find out!
+          </p>
         </div>
+
+        {/* Quiz Content */}
+        <div className="max-w-4xl w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8">
+          {/* Exit Button */}
+          <div className="flex justify-end mb-6">
+            <button
+              onClick={() => window.scrollTo({ top: document.querySelector('#memory-wall')?.getBoundingClientRect().top! + window.scrollY - 100, behavior: 'smooth' })}
+              className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center gap-2"
+            >
+              <ArrowLeft size={16} />
+              Back to Memory Wall
+            </button>
+          </div>
+          
+          {/* Progress Bar */}
+          <div className="mb-8">
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                Question {currentQuestion + 1} of {questions.length}
+              </span>
+              <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                Score: {score}
+              </span>
+            </div>
+            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+              <div 
+                className="bg-gradient-to-r from-purple-600 to-pink-600 h-2 rounded-full transition-all duration-500"
+                style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
+              />
+            </div>
+          </div>
 
         {/* Question */}
         <div className="text-center mb-8">
@@ -221,6 +262,7 @@ const MemoryQuiz: React.FC = () => {
         )}
       </div>
     </div>
+    </section>
   );
 };
 
