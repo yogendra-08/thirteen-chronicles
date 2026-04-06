@@ -185,43 +185,43 @@ const MediaVault = () => {
           </p>
         </div>
 
-        <div className="flex justify-center gap-4 mb-12 flex-wrap">
+        <div className="flex justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 flex-wrap">
           <button
             onClick={() => setFilter('all')}
-            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+            className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-2 text-sm sm:text-base ${
               filter === 'all'
                 ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-105'
                 : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:shadow-md'
             }`}
           >
-            <Grid3X3 size={20} />
+            <Grid3X3 size={16} className="sm:size-20" />
             All
           </button>
           <button
             onClick={() => setFilter('photo')}
-            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+            className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-2 text-sm sm:text-base ${
               filter === 'photo'
                 ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-105'
                 : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:shadow-md'
             }`}
           >
-            <ImageIcon size={20} />
+            <ImageIcon size={16} className="sm:size-20" />
             Photos
           </button>
           <button
             onClick={() => setFilter('video')}
-            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 ${
+            className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-1 sm:gap-2 text-sm sm:text-base ${
               filter === 'video'
                 ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg scale-105'
                 : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:shadow-md'
             }`}
           >
-            <Video size={20} />
+            <Video size={16} className="sm:size-20" />
             Videos
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           {filteredMedia.map((item) => (
             <div
               key={item.id}
@@ -230,7 +230,7 @@ const MediaVault = () => {
                 setCurrentImageIndex(index);
                 setLightboxOpen(true);
               }}
-              className="group relative overflow-hidden rounded-2xl cursor-pointer bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="group relative overflow-hidden rounded-xl sm:rounded-2xl cursor-pointer bg-white dark:bg-gray-800 shadow-md sm:shadow-lg hover:shadow-xl sm:hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
               {item.type === 'photo' ? (
                 <div className="aspect-auto">
