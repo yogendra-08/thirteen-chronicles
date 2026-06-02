@@ -18,16 +18,24 @@ const OurGroup = () => {
     {
       id: 1,
       name: 'Trushna',
-      role: 'The Creative Soul',
-      description: 'Always had the wildest ideas and biggest dreams',
-      extraInfo: 'From late-night brainstorming to making everyone laugh, you brought color to our journey',
+      role: '#SmallButIconic',
+      description: 'Trushna — the youngest soul in the group',
+      extraInfo: `Trushna — the youngest soul in the group, but the one who gave us the biggest memories 🤍😭
+The girl with the smallest hands in the whole group 🥹✨
+From losing her slippers on trips to emotionally blackmailing everyone with
+‘Teju tu aata mala ashi manshen…’ 😂
+funny reactions and that tiny innocent energy — somehow you made every moment more memorable 😭🤝
+You were never just part of the group…
+you were literally one of the reasons the group felt alive ✨🤍
+
+#SmallButIconic`,
       image: 'https://github.com/yogendra-08/thirteen-chronicles/blob/main/photo/members/trushna.png?raw=true',
       color: 'from-purple-400 to-pink-400',
     },
     {
       id: 2,
       name: 'Yogi',
-      role: 'The Wise Guide',
+      role: 'The admin himself ',
       description: 'The voice of reason when we needed it most',
       extraInfo: 'Your wisdom and calm presence kept us grounded through every storm and celebration',
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -36,108 +44,181 @@ const OurGroup = () => {
     {
       id: 3,
       name: 'Anuj',
-      role: 'The Tech Genius',
-      description: 'Solved every problem with code and creativity',
-      extraInfo: 'Your technical skills and innovative thinking helped us overcome every challenge',
+      role: '#SelfieMinister',
+      description: 'Anuj — the committed boy of our group 😌❤️',
+      extraInfo: `Anuj — the committed boy of our group 😌❤️
+Jab bhi selfie ki baat aati thi… bhai sabse aage milta tha 😭😂
+Of course, being the tallest guy in the group had its own advantages 📸
+No matter where we went, one thing was fixed —agar selfie hai, toh Anuj front camera ke closest hi hoga 🤝
+From random laughs to unforgettable memories… tu har frame ka important part tha 🤍
+
+#SelfieMinister`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-green-400 to-blue-400',
     },
     {
       id: 4,
       name: 'Yash',
-      role: 'The Energy Booster',
-      description: 'Brought endless energy and enthusiasm to every gathering',
-      extraInfo: 'Your positive attitude and boundless energy made even the toughest days feel bright',
+      role: '#BhamranVibes',
+      description: 'Yash — the aesthetic boy of the group 📸✨',
+      extraInfo: `Whenever the girls needed pictures… bro was already ready with angles, poses and edits 😭😂
+Also the first person in the group jiske paas aacha mobile tha — and he made sure everyone knew it 😌📱
+Behind all the jokes and photos, tu honestly became one of the best memories of this whole journey 🤍`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-orange-400 to-red-400',
     },
     {
       id: 5,
       name: 'Soundarya',
-      role: 'The Heart of the Group',
-      description: 'Brought everyone together with kindness and love',
-      extraInfo: 'Your caring nature and warm heart made our group feel like a true family',
+      role: '#LipGlossEnergy',
+      description: 'Soundarya — the adopted child of our group 😭🤍',
+      extraInfo: `Soundarya — the adopted child of our group 😭🤍
+Choti bacchi jaisi… but anger level full dangerous 😂
+Thoda sa bhi kuch ulta bolo and madam instantly gussa 😭
+But when the topic is about makeup, outfits or getting ready…
+she becomes the most active person in the room 💄✨
+Lip gloss check, hair check, mirror check — everything had to be perfect 😌
+
+Behind all the drama and cute fights, tu honestly made the group more alive 🤍`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-pink-400 to-rose-400',
     },
     {
       id: 6,
       name: 'Leena',
-      role: 'The Silent Strength',
-      description: 'Quietly supported everyone with unwavering strength',
-      extraInfo: 'Your quiet confidence and steady support were the foundation of our group\'s success',
+      role: '#ChalteHaiVibes',
+      description: 'Leena — the lowkey member of the group 🤍',
+      extraInfo: `Leena — the lowkey member of the group 🤍
+Thodi kam present rehti thi… but whenever plans happened, somehow she was always there 😭✨
+And obviously… the scooty girl of the group 🛵
+Party? Chalte hai.
+Ride? Chalte hai.
+Random outing? Chalte hai 😭😂
+No overthinking, no drama — just vibes, rides and memories.
+
+You were one of those people who quietly became an important part of the group 🤍
+
+#ChalteHaiVibes`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-indigo-400 to-purple-400',
     },
     {
       id: 7,
       name: 'Parag',
-      role: 'The Strategic Mind',
-      description: 'Always planned two steps ahead for every success',
-      extraInfo: 'Your strategic thinking and planning skills helped us navigate every challenge with confidence',
+      role: '#GameNahiGhet',
+      description: 'Parag — the professional majje lene wala of the group 😭😂',
+      extraInfo: `Parag — the professional majje lene wala of the group 😭😂
+Bhai kabhi kisi ek side pe raha hi nahi…
+pehle sabke maje lo, phir ussi bande ka side bhi le lo 🤝😭
+Aur iska legendary dialogue —
+‘He sab ashe ch ahe… me fakt kadhi tuz game nhi ghet’ 😂
+No matter how serious the situation was, tu somehow usko comedy show bana deta tha 😭
+Honestly, group ke half laughs tere wajah se hi the 🤍`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-teal-400 to-cyan-400',
     },
     {
       id: 8,
       name: 'Rupal',
-      role: 'The Creative Artist',
-      description: 'Added beauty and creativity to everything we did',
-      extraInfo: 'Your artistic touch and creative vision made our projects stand out beautifully',
+      role: '#ExpressionQueen',
+      description: 'Rupal — the WCL girl of our group 💼✨',
+      extraInfo: `Pure group mai job sabse pehle pakki hai 😭🤝
+But honestly, your expressions deserved their own fanbase 😂
+Funny ho, irritated ho, ya gussa — har reaction cinematic hota tha 😭
+And behind all those expressions, tu genuinely sabki care karti thi…
+always thinking about everyone in your own silent way 🤍
+
+That’s what made you special for all of us.`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-purple-400 to-pink-400',
     },
     {
       id: 9,
       name: 'Gaurav',
-      role: 'The Food Master',
-      description: 'Made every gathering delicious with homemade treats',
-      extraInfo: 'Your culinary skills and generosity brought us together over countless shared meals',
+      role: '#AagLavteBhai',
+      description: 'Gaurav — the Matchbox of our group 🔥😭',
+      extraInfo: `Ek line jo isne sabse zyada suni hogi —
+‘Haa khup aag lavte bhai’ 😂
+Kisi ke maje lene ho, bhai always ready 😭🤝
+ye aur shant rahe?
+unpossible mission 💀
+But honestly, tere bina group itna entertaining kabhi nahi hota 🤍
+Tu tha toh har normal moment bhi memorable ban gaya ✨`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-yellow-400 to-orange-400',
     },
     {
       id: 10,
       name: 'Teju',
-      role: 'The Social Butterfly',
-      description: 'Brought joy and laughter to every moment with infectious happiness',
-      extraInfo: 'Your cheerful personality and ability to make everyone smile made even ordinary days extraordinary',
+      role: '#gachpandavlya',
+      description: 'Teju — the Mumbai Indians fan girl 💙🏏',
+      extraInfo: `And officially the treasurer of our group 💸😭
+From handling money to handling everyone’s drama…
+she did everything 😌🤝
+But the best part?
+Her funny gaaliya 😭😂
+Honestly, vo gaali kam aur comedy zyada lagti thi…
+sunke hasi aati thi 🤍
+Every group needs someone chaotic, caring and unintentionally funny…
+and for us, that was always you ✨`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-cyan-400 to-blue-400',
     },
     {
       id: 11,
       name: 'Om',
-      role: 'The Spiritual Guide',
-      description: 'Kept everyone centered with wisdom and peace',
-      extraInfo: 'Your spiritual guidance and calm presence helped us find balance in chaos',
+      role: '#HepalLegend',
+      description: 'Om — fun ke saath the most emotional guy of our group 🤍😭',
+      extraInfo: `Aur haan… one more treasurer because apparently paiso pe trust sirf inpe hi tha 😂💸
+Iska majak banao aur bhai ka default response ready —
+‘Hepal la***a’ 😭😂
+Aur agar ek baar pani ki bottle le aaya…
+toh next 10 baar yaad bhi dilayega 😌🤝
+
+Behind all the jokes and funny arguments, tu honestly sabse genuine logo mai se ek tha 🤍`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-violet-400 to-purple-400',
     },
     {
       id: 12,
       name: 'Prathmesh',
-      role: 'The Problem Solver',
-      description: 'Fixed every issue with patience and skill',
-      extraInfo: 'Your methodical approach and problem-solving skills saved the day countless times',
+      role: '#JuariMindset',
+      description: 'Prathmesh — the bomb of our group 💣😭',
+      extraInfo: `Agar kuch bigadna ho ya thik karna ho…
+bas isko yaad kar lo 😂🤝
+Rancho of out group 😭✨
+Har problem ka jugaad, har situation ka solution…
+And yes… the certified juari of the group 🎲😂
+Risk lene mai bhai kabhi peeche nahi hata 💀
+
+Chaos, intelligence and comedy ka perfect combo tha tu 🤍`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-red-400 to-orange-400',
     },
     {
       id: 13,
       name: 'Bhagwati',
-      role: 'The Late Night Star',
-      description: 'Joined every celebration with perfect timing and enthusiasm',
-      extraInfo: 'Your infectious energy and perfect timing made every moment more memorable',
+      role: '#TomatoKiChatni',
+      description: 'Bhagwati — one more certified juari of the group 🎲😭',
+      extraInfo: `Aur probably the only person jo mobile cover ke piche apni photo lagake ghumti thi 😌✨iykyk
+But the funniest part?
+Phone kahi bhi rakho… aur phir khud hi bhool jao kaha rakha hai 😂📱
+
+And one thing everybody knows about you —
+your unlimited love for tomato ki chatni 😭🍅
+
+Cute chaos, funny moments and pure randomness…
+that was literally your vibe in the group 🤍`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-pink-400 to-purple-400',
     },
     {
       id: 14,
       name: 'Adhira',
-      role: 'The Sunshine',
-      description: 'Brought warmth and brightness to every gathering',
-      extraInfo: 'Your radiant smile and positive energy lit up every room and made everyone feel at home',
+      role: '#AlwaysOneOfUs',
+      description: 'Adhira 🤍',
+      extraInfo: `College chhod diya… but never really left the group.
+No matter where life takes us, you’ll always be a part of these memories and this family ✨`,
       image: 'https://images.pexels.com/photos/3394310/pexels-photo-3394310.jpeg?auto=compress&cs=tinysrgb&w=600',
       color: 'from-amber-400 to-yellow-400',
     },
